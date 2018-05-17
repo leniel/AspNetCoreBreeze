@@ -1,0 +1,30 @@
+﻿<div class="btn-group" style="margin-bottom: 15px">
+    <button class="btn btn-primary" (click)="beginNew()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add</button>
+</div>
+
+<div id="search-result" scrollToTop class="table-responsive" style="height: 220px; overflow: auto">
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="selectable" 
+                [ngClass]="{ 'info': staffingResource.id == staffingResourceId }" 
+                *ngFor="let employee of employees" 
+                (click)="onSelect(employee)">
+                <td>{{ employee.firstName }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<router-outlet></router-outlet>
+<employee-name-editor></employee-name-editor>
